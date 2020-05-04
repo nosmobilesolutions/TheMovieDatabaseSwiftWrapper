@@ -7,9 +7,8 @@ let package = Package(
     name: "TMDBSwiftWrapper",
     platforms: [
         .macOS(.v10_12),
-        .iOS(.v10),
-        .tvOS(.v10),
-        .watchOS(.v3)
+        .iOS(.v8),
+        .tvOS(.v10)
     ],
     products: [
         .library(
@@ -23,5 +22,5 @@ let package = Package(
             path: "Common"
             )
     ],
-    swiftLanguageVersions: [.v5]
+    swiftLanguageVersions: [.v4]
 )
