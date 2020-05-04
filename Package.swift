@@ -12,15 +12,15 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "TMDBSwiftWrapper",
-            targets: ["TMDBSwiftWrapper"]),
+            name: "TMDBSwift",
+            targets: ["TMDBSwift"]),
     ],
     targets: [
         .target(
-            name: "TMDBSwiftWrapper",
+            name: "TMDBSwift",
             dependencies: [],
-            path:"./"
-        )
+            path: "Sources"
+            )
     ],
     swiftLanguageVersions: [.v4]
 )
