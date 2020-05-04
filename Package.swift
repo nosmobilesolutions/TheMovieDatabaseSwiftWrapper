@@ -19,8 +19,8 @@ let package = Package(
         .target(
             name: "TMDBSwiftWrapper",
             dependencies: [],
-            path: "Common"
-            )
+            path:"./"
+        )
     ],
     swiftLanguageVersions: [.v4]
 )
