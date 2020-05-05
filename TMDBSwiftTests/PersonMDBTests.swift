@@ -200,13 +200,19 @@ class PersonMDBTests: XCTestCase {
     var data: PersonMDB!
     var tvCredits: PersonTVCredits!
     var externaIds: ExternalIdsMDB!
+    var translations: [PersonTranslationMDB]! = [];
     let expectation = self.expectation(description: "Wait for data to load.")
 
-    PersonMDB.personAppendTo(personID: 19429, append_to: ["tv_credits", "external_ids"]){ api, person, json in
+    PersonMDB.personAppendTo(personID: 19429, append_to: ["tv_credits", "external_ids", "translations"]){ api, person, json in
       data = person
       if let json = json {
         tvCredits = PersonTVCredits(json: json["tv_credits"])
         externaIds = ExternalIdsMDB.init(results: json["external_ids"])
+        
+        json["translations"]["translations"].forEach { (s,j) in
+          translations.append(PersonTranslationMDB.init(results: j))
+        }
+        
         expectation.fulfill()
       }
     }
@@ -214,5 +220,6 @@ class PersonMDBTests: XCTestCase {
     XCTAssertEqual(data.name, "Bruce Lee")
     XCTAssertNotNil(tvCredits.cast)
     XCTAssertNotNil(externaIds.imdb_id);
+    XCTAssertGreaterThanOrEqual(translations.count, 1);
   }
 }

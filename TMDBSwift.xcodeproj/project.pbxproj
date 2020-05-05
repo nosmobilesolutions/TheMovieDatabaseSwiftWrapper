@@ -69,7 +69,6 @@
 		5EF1B36C1CB732C900B49F4E /* PageResultsMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1B3361CB732C900B49F4E /* PageResultsMDB.swift */; };
 		5EF1B36D1CB732C900B49F4E /* PersonMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1B3371CB732C900B49F4E /* PersonMDB.swift */; };
 		5EF1B36F1CB732C900B49F4E /* ReviewsMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1B3391CB732C900B49F4E /* ReviewsMDB.swift */; };
-		5EF1B3701CB732C900B49F4E /* TranslationsMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1B33A1CB732C900B49F4E /* TranslationsMDB.swift */; };
 		5EF1B3711CB732C900B49F4E /* TVCreditsMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1B33B1CB732C900B49F4E /* TVCreditsMDB.swift */; };
 		5EF1B3721CB732C900B49F4E /* TVDetailedMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1B33C1CB732C900B49F4E /* TVDetailedMDB.swift */; };
 		5EF1B3731CB732C900B49F4E /* TVEpisodesMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1B33D1CB732C900B49F4E /* TVEpisodesMDB.swift */; };
@@ -150,6 +149,7 @@
 		6FBFDD052273F36000B5A9B4 /* ClientReturn+decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E963056216987CB006F7FA5 /* ClientReturn+decode.swift */; };
 		6FBFDD062273F37300B5A9B4 /* ResultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E963016215F76B3006F7FA5 /* ResultsWrapper.swift */; };
 		6FBFDD072273F37300B5A9B4 /* ResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E96305421698762006F7FA5 /* ResponseWrapper.swift */; };
+		B39DA6252461924200752886 /* TranslationsMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1B33A1CB732C900B49F4E /* TranslationsMDB.swift */; };
 		CE0A99AF21FF769700ADADE7 /* Client_Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A99AE21FF769700ADADE7 /* Client_Authentication.swift */; };
 		CE0A99B021FF769700ADADE7 /* Client_Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A99AE21FF769700ADADE7 /* Client_Authentication.swift */; };
 		CE0A99B121FF769700ADADE7 /* Client_Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A99AE21FF769700ADADE7 /* Client_Authentication.swift */; };
@@ -232,19 +232,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5EF1B2771CB72DC000B49F4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5EF1B2621CB72DBF00B49F4E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5EF1B26A1CB72DBF00B49F4E;
-			remoteInfo = TMDBSwift;
-		};
 		6F62A0BE20CB9360000744A9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5EF1B2621CB72DBF00B49F4E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6F62A0B320CB935F000744A9;
 			remoteInfo = TMDBSwiftMac;
+		};
+		B39DA6212461901700752886 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5EF1B2621CB72DBF00B49F4E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EF1B26A1CB72DBF00B49F4E;
+			remoteInfo = "TMDBSwift-iOS";
 		};
 		D1D3B4D3212980C2002B3486 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -676,7 +676,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				5EF1B2781CB72DC000B49F4E /* PBXTargetDependency */,
+				B39DA6222461901700752886 /* PBXTargetDependency */,
 			);
 			name = "TMDBSwift-iOSTests";
 			productName = TMDBSwiftTests;
@@ -873,6 +873,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39DA6252461924200752886 /* TranslationsMDB.swift in Sources */,
 				5EF1B3521CB732C900B49F4E /* Client_TV.swift in Sources */,
 				5EF1B3601CB732C900B49F4E /* GenresMDB.swift in Sources */,
 				5EF1B35E1CB732C900B49F4E /* ExternalIdsMDB.swift in Sources */,
@@ -927,7 +928,6 @@
 				5EF1B35B1CB732C900B49F4E /* Discover.swift in Sources */,
 				5EF1B3731CB732C900B49F4E /* TVEpisodesMDB.swift in Sources */,
 				5EF143621CF0A3FB009C620D /* ArrayObjectProtocol.swift in Sources */,
-				5EF1B3701CB732C900B49F4E /* TranslationsMDB.swift in Sources */,
 				5EF1B3421CB732C900B49F4E /* Clent_Discover.swift in Sources */,
 				5EF1B3511CB732C900B49F4E /* Client_Review.swift in Sources */,
 				5EF1B36C1CB732C900B49F4E /* PageResultsMDB.swift in Sources */,
@@ -1130,15 +1130,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5EF1B2781CB72DC000B49F4E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5EF1B26A1CB72DBF00B49F4E /* TMDBSwift-iOS */;
-			targetProxy = 5EF1B2771CB72DC000B49F4E /* PBXContainerItemProxy */;
-		};
 		6F62A0BF20CB9360000744A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6F62A0B320CB935F000744A9 /* TMDBSwift-macOS */;
 			targetProxy = 6F62A0BE20CB9360000744A9 /* PBXContainerItemProxy */;
+		};
+		B39DA6222461901700752886 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EF1B26A1CB72DBF00B49F4E /* TMDBSwift-iOS */;
+			targetProxy = B39DA6212461901700752886 /* PBXContainerItemProxy */;
 		};
 		D1D3B4D4212980C2002B3486 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
