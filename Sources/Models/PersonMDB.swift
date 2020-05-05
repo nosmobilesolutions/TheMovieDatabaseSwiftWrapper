@@ -24,6 +24,8 @@ public struct PersonMDB: ArrayObject{
   public var profile_path: String?
   public var external_ids: ExternalIdsMDB?
   public var translations: [PersonTranslationMDB]?
+  public var tvCredit: PersonTVCredits?
+  public var movieCredit: PersonMovieCredits?
   
   public init(results: JSON){
     adult = results["adult"].bool
@@ -50,6 +52,14 @@ public struct PersonMDB: ArrayObject{
           translations?.append(PersonTranslationMDB.init(results: t.1))
         }
       }
+    }
+    
+    if(results["tv_credits"].exists()){
+      tvCredit = PersonTVCredits.init(json: results["tv_credits"]);
+    }
+    
+    if(results["movie_credits"].exists()){
+      movieCredit = PersonMovieCredits.init(json: results["movie_credits"]);
     }
     
   }
