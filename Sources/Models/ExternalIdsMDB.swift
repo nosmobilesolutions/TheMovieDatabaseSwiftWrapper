@@ -15,6 +15,9 @@ open class ExternalIdsMDB{
   open var  freebase_id: String?
   open var  tvdb_id: Int?
   open var  tvrage_id: Int?
+  open var  facebook_id: String?
+  open var  instagram_id: String?
+  open var  twitter_id: String?
   
   //TV(S/EP) MV
   public init(results: JSON){
@@ -24,6 +27,9 @@ open class ExternalIdsMDB{
     tvdb_id = results["tvdb_id"].int
     tvrage_id = results["tvrage_id"].int
     id = results["id"].int
+    facebook_id = results["facebook_id"].string
+    instagram_id = results["instagram_id"].string
+    twitter_id = results["twitter_id"].string
   }
   
 }

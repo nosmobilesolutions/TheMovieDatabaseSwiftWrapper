@@ -16,6 +16,9 @@ public enum ExternalIdTypes: String{
   case freebase_id;
   case tvdb_id
   case tvrage_id
+  case facebook_id
+  case instagram_id
+  case twitter_id
   case id
 }
 
