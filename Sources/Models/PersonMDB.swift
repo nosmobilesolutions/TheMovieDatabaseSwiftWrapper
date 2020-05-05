@@ -22,6 +22,7 @@ public struct PersonMDB: ArrayObject{
   public var place_of_birth: String?
   public var popularity: Int!
   public var profile_path: String?
+  public var external_ids: ExternalIdsMDB?
   
   public init(results: JSON){
     adult = results["adult"].bool
@@ -36,6 +37,10 @@ public struct PersonMDB: ArrayObject{
     place_of_birth = results["place_of_birth"].string
     popularity = results["popularity"].int
     profile_path = results["profile_path"].string
+    
+    if(results["external_ids"].exists()){
+      external_ids = ExternalIdsMDB.init(results: results["external_ids"]);
+    }
   }
   
   ///Get the general person information for a specific id.

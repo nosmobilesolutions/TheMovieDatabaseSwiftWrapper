@@ -199,17 +199,20 @@ class PersonMDBTests: XCTestCase {
   func testPersonAppendTo() {
     var data: PersonMDB!
     var tvCredits: PersonTVCredits!
+    var externaIds: ExternalIdsMDB!
     let expectation = self.expectation(description: "Wait for data to load.")
 
-    PersonMDB.personAppendTo(personID: 19429, append_to: ["tv_credits"]){ api, person, json in
+    PersonMDB.personAppendTo(personID: 19429, append_to: ["tv_credits", "external_ids"]){ api, person, json in
       data = person
       if let json = json {
         tvCredits = PersonTVCredits(json: json["tv_credits"])
+        externaIds = ExternalIdsMDB.init(results: json["external_ids"])
         expectation.fulfill()
       }
     }
     waitForExpectations(timeout: expecationTimeout, handler: nil)
     XCTAssertEqual(data.name, "Bruce Lee")
     XCTAssertNotNil(tvCredits.cast)
+    XCTAssertNotNil(externaIds.imdb_id);
   }
 }
