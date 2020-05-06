@@ -14,7 +14,7 @@ extension Client{
       parameters["language"] = language as AnyObject?
     }
     
-    let url = "https://api.themoviedb.org/3/tv/" + urlType
+    let url = TMDBConfig.apiUrl + "/tv/" + urlType
     networkRequest(url: url, parameters: parameters, completion: {
       apiReturn in
       completion(apiReturn)

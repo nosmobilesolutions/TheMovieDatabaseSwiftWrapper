@@ -9,9 +9,9 @@
 import Foundation
 
 extension Client{
-  static func keyword(_ keywordType: String, completion: @escaping (ClientReturn) -> ()) -> (){
+  static func keyword(_ keywordId: Int, completion: @escaping (ClientReturn) -> ()) -> (){
     let parameters: [String : AnyObject] = [:]
-    let url = keywordType
+    let url = TMDBConfig.apiUrl + "/keyword/" + String(keywordId)
     
     networkRequest(url: url, parameters: parameters, completion: {
       apiReturn in
@@ -19,7 +19,7 @@ extension Client{
     })
   }
   
-  static func keyword_movies(_ keywordType: String, page: Int?, language: String?, completion: @escaping (ClientReturn) -> ()) -> (){
+  static func keyword_movies(_ keywordId: Int, page: Int?, language: String?, completion: @escaping (ClientReturn) -> ()) -> (){
     var parameters: [String : AnyObject] = [:]
     if(page != nil){
       parameters["page"] = page as AnyObject?
@@ -27,7 +27,9 @@ extension Client{
     if(language != nil){
       parameters["language"] = language as AnyObject?
     }
-    let url = keywordType
+    
+    let url = TMDBConfig.apiUrl + "/keyword/" + String(keywordId)
+    
     networkRequest(url: url, parameters: parameters, completion: {
       apiReturn in
       

@@ -47,7 +47,7 @@ extension Client{
       }
     }
     
-    let url = "https://api.themoviedb.org/3/search/" + urlType
+    let url = TMDBConfig.apiUrl + "/search/" + urlType
     networkRequest(url: url, parameters: parameters, completion: {
       apiReturn in
       completion(apiReturn)

@@ -21,8 +21,7 @@ open class KeywordsMDB: ArrayObject{
   
   ///Get the basic information for a specific keyword id.
   open class func keyword(keywordId: Int!, completion: @escaping (_ clientReturn: ClientReturn, _ data: KeywordsMDB?) -> ()) -> (){
-    let url = "https://api.themoviedb.org/3/keyword/" + String(keywordId)
-    Client.keyword(url){
+    Client.keyword(keywordId){
       apiReturn in
       var keywords: KeywordsMDB?
       if let json = apiReturn.json {
@@ -34,8 +33,8 @@ open class KeywordsMDB: ArrayObject{
   
   ///Get the list of movies for a particular keyword by id.
   open class func keyword_movies(keywordId: Int!, page: Int, language: String?, completion: @escaping (_ clientReturn: ClientReturn, _ data: [MovieMDB]?) -> ()) -> (){
-    let url = "https://api.themoviedb.org/3/keyword/" + String(keywordId) + "/movies"
-    Client.keyword_movies(url, page: page, language: language){
+    
+    Client.keyword_movies(keywordId, page: page, language: language){
       apiReturn in
       var movies: [MovieMDB]?
       if let json = apiReturn.json?["results"] {

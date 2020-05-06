@@ -146,7 +146,7 @@ extension Client{
       }
     }
     
-    let url = "https://api.themoviedb.org/3/discover/" + baseURL
+    let url = TMDBConfig.apiUrl + "/discover/" + baseURL
     networkRequest(url: url, parameters: parameters){
       apiReturn in
       if(apiReturn.error == nil){
@@ -287,7 +287,7 @@ extension Client{
       parameters["year"] = year as AnyObject?
     }
     
-    let url = "https://api.themoviedb.org/3/discover/" + baseURL
+    let url = TMDBConfig.apiUrl + "/discover/" + baseURL
     
     networkRequest(url: url, parameters: parameters){
       apiReturn in

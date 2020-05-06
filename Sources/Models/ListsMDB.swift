@@ -37,7 +37,7 @@ public struct ListsMDB: ArrayObject{
   
   ///MARK: Lists
   public  static func lists(listId: String!, completion: @escaping (_ clientReturn: ClientReturn, _ data: ListsMDB?) -> ()) -> (){
-    let url  = "https://api.themoviedb.org/3/list/" + listId
+    let url  = TMDBConfig.apiUrl + "/list/" + listId
     Client.Lists(url, listId: listId!){
       apiReturn in
       var lists: ListsMDB?

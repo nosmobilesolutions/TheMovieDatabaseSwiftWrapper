@@ -14,7 +14,7 @@ extension Client{
     var parameters: [String : AnyObject] = [:]
     parameters["external_source"] = external_source as AnyObject?
     
-    let url = "https://api.themoviedb.org/3/find/" + external_id
+    let url = TMDBConfig.apiUrl + "/find/" + external_id
     networkRequest(url: url, parameters: parameters, completion: {
       apiReturn in
       

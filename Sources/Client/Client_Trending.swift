@@ -4,7 +4,7 @@ extension Client{
 
   static func trending(baseURL: String, completion: @escaping (ClientReturn) -> ()) -> (){
 
-    let url = "https://api.themoviedb.org/3/trending/" + baseURL
+    let url = TMDBConfig.apiUrl + "/trending/" + baseURL
     networkRequest(url: url, parameters: [:]){
       apiReturn in
       if(apiReturn.error == nil){

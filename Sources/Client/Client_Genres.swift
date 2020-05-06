@@ -13,9 +13,9 @@ extension Client{
     var parameters: [String : AnyObject] = [:]
     var url = "";
     if(movieList == false || movieList == nil){
-      url = "https://api.themoviedb.org/3/genre/" + listType + "/list";
+      url = TMDBConfig.apiUrl + "/genre/" + listType + "/list";
     }else{
-      url = "https://api.themoviedb.org/3/genre/" + String(genreId) + "/movies";
+      url = TMDBConfig.apiUrl + "/genre/" + String(genreId) + "/movies";
     }
     
     if(language != nil){

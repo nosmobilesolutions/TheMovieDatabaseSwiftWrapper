@@ -24,7 +24,7 @@ extension Client{
       parameters["end_date"] = endDate as AnyObject?
     }
     
-    let url = "https://api.themoviedb.org/3/" + changeType + "/changes"
+    let url = TMDBConfig.apiUrl + "/" + changeType + "/changes"
     networkRequest(url: url, parameters: parameters){
       apiReturn in
       completion(apiReturn)

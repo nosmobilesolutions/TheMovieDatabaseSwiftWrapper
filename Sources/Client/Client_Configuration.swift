@@ -12,7 +12,7 @@ extension Client{
 
     static func Configuration(completion: @escaping (ClientReturn) -> ()) -> (){
         let parameters: [String : AnyObject] = [:]
-        let url = "https://api.themoviedb.org/3/configuration"
+        let url = TMDBConfig.apiUrl + "/configuration"
         networkRequest(url: url, parameters: parameters, completion: {
             apiReturn in
             

@@ -11,7 +11,7 @@ extension Client{
   
   static func networks(networkId: Int!, completion: @escaping (ClientReturn) -> ()) -> (){
     let parameters: [String : AnyObject] = [:]
-    let url = "https://api.themoviedb.org/3/network/" + String(networkId)
+    let url = TMDBConfig.apiUrl + "/network/" + String(networkId)
     networkRequest(url: url, parameters: parameters, completion: {
       apiReturn in
       

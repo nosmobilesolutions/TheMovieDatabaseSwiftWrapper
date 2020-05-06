@@ -11,7 +11,7 @@ extension Client{
   
   static func review(reviewId: String!, completion: @escaping (ClientReturn) -> ()) -> (){
     let parameters: [String : AnyObject] = [:]
-    let url = "https://api.themoviedb.org/3/review/"+reviewId
+    let url = TMDBConfig.apiUrl + "/review/"+reviewId
     
     networkRequest(url: url, parameters: parameters, completion: {
       apiReturn in

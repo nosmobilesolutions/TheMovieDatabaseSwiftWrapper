@@ -12,7 +12,7 @@ extension Client{
   
   static func Company(companyId: Int!, completion: @escaping (ClientReturn) -> ()) -> (){
     let parameters: [String : AnyObject] = [:]
-    let url = "https://api.themoviedb.org/3/company/" + String(companyId)
+    let url = TMDBConfig.apiUrl + "/company/" + String(companyId)
     networkRequest(url: url, parameters: parameters, completion: {
       apiReturn in
       
@@ -30,7 +30,7 @@ extension Client{
       parameters["language"] = language as AnyObject?
     }
     
-    let url = "https://api.themoviedb.org/3/company/" + String(companyId) + "/movies"
+    let url = TMDBConfig.apiUrl + "/company/" + String(companyId) + "/movies"
     networkRequest(url: url, parameters: parameters, completion: {
       apiReturn in
       
