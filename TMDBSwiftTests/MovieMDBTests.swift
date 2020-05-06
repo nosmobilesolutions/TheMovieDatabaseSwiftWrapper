@@ -65,8 +65,8 @@ class MovieMDBTests: XCTestCase {
 		}
 		waitForExpectations(timeout: 5, handler: nil)
 		XCTAssertNotNil(data)
-		XCTAssertEqual(data?.titles[0].title, "Au Nom du Père")
-		XCTAssertEqual(data?.titles[0].iso_3166_1, "FR")
+		XCTAssertEqual(data?.titles[0].title, "В името на Отца")
+		XCTAssertEqual(data?.titles[0].iso_3166_1, "BG")
 	}
 	
 	//Get the cast and crew information for a specific movie id.
@@ -94,11 +94,11 @@ class MovieMDBTests: XCTestCase {
 		//    XCTAssertEqual(data?.cast[0].profile_path, "/hknfCSSU6AMeKV9yn9NTtTzIEGc.jpg")
 		
 		//crew
-		XCTAssertEqual(data?.crew[0].credit_id, "52fe448bc3a36847f809c0a5")
-		XCTAssertEqual(data?.crew[0].department, "Directing")
-		XCTAssertEqual(data?.crew[0].id, 53334)
-		XCTAssertEqual(data?.crew[0].job, "Director")
-		XCTAssertEqual(data?.crew[0].name, "Jim Sheridan")
+		XCTAssertEqual(data?.crew[0].credit_id, "5762dc37c3a36818e000002a")
+		XCTAssertEqual(data?.crew[0].department, "Crew")
+		XCTAssertEqual(data?.crew[0].id, 1776)
+		XCTAssertEqual(data?.crew[0].job, "Thanks")
+		XCTAssertEqual(data?.crew[0].name, "Francis Ford Coppola")
 		//    XCTAssertEqual(data?.crew[0].profile_path, "/mfukw1JcUsXmUzt6IoaayMaescv.jpg")
 		
 	}
