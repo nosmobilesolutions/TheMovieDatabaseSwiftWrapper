@@ -22,6 +22,11 @@ public struct TVEpisodesMDB: ArrayObject {
   public var still_path: String!
   public var vote_average: Int!
   public var vote_count: Int!
+  public var credits: TVCreditsMDB?
+  public var externalIds: ExternalIdsMDB?;
+  public var images: ImagesMDB?;
+  public var translations = [TranslationsMDB]();
+  public var videos = [VideosMDB]();
   
   public init(results: JSON){
     air_date = results["air_date"].string
@@ -31,6 +36,31 @@ public struct TVEpisodesMDB: ArrayObject {
         crew.append(CrewMDB.init(crew: results["crew"][i]))
       }
     }
+    
+    if(results["credits"].exists()){
+      credits = TVCreditsMDB.init(results: results["credits"]);
+    }
+    
+    if(results["external_ids"].exists()){
+      externalIds = ExternalIdsMDB.init(results: results["external_ids"]);
+    }
+    
+    if(results["images"].exists()){
+         images = ImagesMDB.init(results: results["images"]);
+    }
+    
+    if(results["translations"].exists() && results["translations"]["translations"].exists()){
+      for i in 0...results["translations"]["translations"].count{
+        translations.append(TranslationsMDB.init(results: results["translations"]["translations"][i]))
+      }
+    }
+    
+    if(results["videos"].exists() && results["videos"]["results"].exists()){
+      for i in 0...results["videos"]["results"].count{
+        videos.append(VideosMDB.init(results: results["translations"]["translations"][i]))
+      }
+    }
+    
     number = results["episode_number"].int
     
     if(results["guest_stars"].exists()){
@@ -109,6 +139,18 @@ public struct TVEpisodesMDB: ArrayObject {
       let videos: [VideosMDB]? = apiReturn.decodeResults()
 
       completion(apiReturn, videos)
+    }
+  }
+  
+  public static func episode_number_append_to(tvShowId: Int!, seasonNumber: Int!, episodeNumber: Int!, language: String?, appent_to: [String]? = nil, completion: @escaping (_ clientReturn: ClientReturn, _ data: TVEpisodesMDB?) -> ()) -> (){
+    let urltype = String(tvShowId) + "/season/" + String(seasonNumber) + "/episode/" + String(episodeNumber)
+    Client.Seasons(urltype,  language: language, append_to: appent_to){
+      apiReturn in
+      var episodes: TVEpisodesMDB?
+      if let json = apiReturn.json {
+        episodes = TVEpisodesMDB(results: json)
+      }
+      completion(apiReturn, episodes)
     }
   }
 }

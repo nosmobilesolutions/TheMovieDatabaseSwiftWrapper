@@ -8,10 +8,14 @@
 
 import Foundation
 extension Client{
-  static func Seasons(_ urlType: String!, language: String?, completion: @escaping (ClientReturn) -> ()) -> (){
+  static func Seasons(_ urlType: String!, language: String?, append_to: [String]? = nil, completion: @escaping (ClientReturn) -> ()) -> (){
     var parameters: [String : AnyObject] = [:]
     if(language != nil){
       parameters["language"] = language as AnyObject?
+    }
+    
+    if (append_to != nil) {
+      parameters["append_to_response"] = append_to?.joined(separator: ",") as AnyObject?
     }
     
     let url = TMDBConfig.apiUrl + "/tv/" + urlType

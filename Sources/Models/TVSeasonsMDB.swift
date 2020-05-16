@@ -17,6 +17,10 @@ public struct TVSeasonsMDB: ArrayObject{
   public var id: Int!
   public var poster_path: String!
   public var season_number: Int!
+  public var credits: TVCreditsMDB?
+  public var externalIds: ExternalIdsMDB?;
+  public var images: ImagesMDB?;
+  public var videos = [VideosMDB]();
   
   public init(results: JSON){
     air_date = results["air_date"].string
@@ -26,6 +30,24 @@ public struct TVSeasonsMDB: ArrayObject{
     id = results["id"].int
     poster_path = results["poster_path"].string
     season_number = results["season_number"].int
+    
+    if(results["credits"].exists()){
+      credits = TVCreditsMDB.init(results: results["credits"]);
+    }
+    
+    if(results["external_ids"].exists()){
+      externalIds = ExternalIdsMDB.init(results: results["external_ids"]);
+    }
+    
+    if(results["images"].exists()){
+         images = ImagesMDB.init(results: results["images"]);
+    }
+    
+    if(results["videos"].exists() && results["videos"]["results"].exists()){
+      for i in 0...results["videos"]["results"].count{
+        videos.append(VideosMDB.init(results: results["translations"]["translations"][i]))
+      }
+    }
   }
   
   ///Get the primary information about a TV season by its season number.
@@ -93,4 +115,18 @@ public struct TVSeasonsMDB: ArrayObject{
       completion(apiReturn, results)
     }
   }
+  
+  public static func season_number_append_to(tvShowId: Int!, seasonNumber: Int!, language: String?, append_to: [String]? = nil, completion: @escaping (_ clientReturn: ClientReturn, _ data: TVSeasonsMDB?) -> ()) -> (){
+    
+    let urltype = String(tvShowId) + "/season/" + String(seasonNumber)
+    Client.Seasons(urltype,  language: language, append_to: append_to){
+      apiReturn in
+      var data: TVSeasonsMDB?
+      if let json = apiReturn.json {
+        data = TVSeasonsMDB(results: json)
+      }
+      completion(apiReturn, data)
+    }
+  }
+  
 }

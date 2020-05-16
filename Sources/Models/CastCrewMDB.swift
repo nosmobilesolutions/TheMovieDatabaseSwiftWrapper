@@ -48,6 +48,7 @@ open class TVCastMDB: CastCrewCommonMDB{
 open class TVCreditsMDB{
   open var cast = [TVCastMDB]()
   open var crew = [CrewMDB]()
+  open var guestStar = [TVCastMDB]()
   
   public init(results: JSON){
     //tv cast
@@ -58,6 +59,11 @@ open class TVCreditsMDB{
     for crewResults in results["crew"]{
       crew.append(CrewMDB.init(crew: crewResults.1))
     }
+    //guest star -- common
+    for gsResult in results["guest_stars"]{
+      guestStar.append(TVCastMDB.init(cast: gsResult.1))
+    }
+    
   }
 }
 
