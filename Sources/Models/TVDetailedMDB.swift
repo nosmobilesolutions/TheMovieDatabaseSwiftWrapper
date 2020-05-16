@@ -48,7 +48,8 @@ open class TVDetailedMDB: TVMDB{
   open var in_production: Bool?
   open var languages: [String]?
   open var last_air_date: String!
-  open var networks = [KeywordsMDB]()
+  open var networks = [NetworksMDB]()
+  open var keywords = [KeywordsMDB]()
   open var number_of_episodes: Int!
   open var number_of_seasons: Int!
   open var production_companies = [KeywordsMDB]()
@@ -57,6 +58,16 @@ open class TVDetailedMDB: TVMDB{
   open var type: String!
   open var nextEpisodeToAir: TVEpisodesMDB?
   open var lastEpisodeToAir: TVEpisodesMDB?
+  open var contentRating = [Content_RatingsMDB]()
+  open var credits: TVCreditsMDB?;
+  open var externalIds: ExternalIdsMDB?;
+  open var images: ImagesMDB?;
+  open var recommendations : PaginationResult<TVMDB>?;
+  open var reviews : PaginationResult<ReviewsMDB>?;
+  open var similar : PaginationResult<TVMDB>?;
+  open var translations = [TvTranslationMDB]();
+  open var videos = [VideosMDB]();
+  
 
   required public init(results: JSON) {
     super.init(results: results)
@@ -76,19 +87,55 @@ open class TVDetailedMDB: TVMDB{
       last_air_date = ""
     }
     
+    if(results["content_ratings"].exists() && results["content_ratings"]["results"].exists()){
+      self.contentRating = Content_RatingsMDB.initialize(json: results["content_ratings"]["results"])
+    }
+    
+    if(results["credits"].exists()){
+      credits = TVCreditsMDB.init(results: results["credits"])
+    }
+    
+    if(results["external_ids"].exists()){
+      externalIds = ExternalIdsMDB.init(results: results["external_ids"])
+    }
+    
+    if(results["images"].exists()){
+      images = ImagesMDB.init(results: results["images"])
+    }
+    
     if(results["networks"].exists()){
-      networks = results["networks"].map{
-        KeywordsMDB.init(results: $0.1)
-      }
+      networks = NetworksMDB.initialize(json: results["networks"]);
+    }
+    
+    if(results["keywords"].exists() && results["keywords"]["results"].exists()){
+      keywords = KeywordsMDB.initialize(json: results["keywords"]["results"])
+    }
+    
+    if(results["recommendations"].exists()){
+      recommendations = PaginationResult<TVMDB>.init(results: results["recommendations"]);
+    }
+    
+    if(results["reviews"].exists()){
+      reviews = PaginationResult<ReviewsMDB>.init(results: results["reviews"]);
+    }
+    
+    if(results["similar"].exists()){
+      similar = PaginationResult<TVMDB>.init(results: results["similar"]);
+    }
+    
+    if(results["translations"].exists() && results["translations"]["translations"].exists()){
+      translations = TvTranslationMDB.initialize(json: results["translations"]["translations"])
+    }
+    
+    if(results["videos"].exists() && results["videos"]["results"].exists()){
+      videos = VideosMDB.initialize(json: results["videos"]["results"])
     }
 
     number_of_episodes = results["number_of_episodes"].int
     number_of_seasons = results["number_of_seasons"].int
     
     if(results["production_companies"].exists()){
-      production_companies = results["production_companies"].map{
-        KeywordsMDB.init(results: $0.1)
-      }
+      production_companies = KeywordsMDB.initialize(json: results["production_companies"]);
     }
     
     seasons = results["seasons"].map{

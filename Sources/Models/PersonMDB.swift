@@ -23,7 +23,7 @@ public struct PersonMDB: ArrayObject{
   public var popularity: Int!
   public var profile_path: String?
   public var external_ids: ExternalIdsMDB?
-  public var translations: [PersonTranslationMDB]?
+  public var translations = [PersonTranslationMDB]()
   public var tvCredit: PersonTVCredits?
   public var movieCredit: PersonMovieCredits?
   
@@ -46,12 +46,7 @@ public struct PersonMDB: ArrayObject{
     }
     
     if(results["translations"].count > 0){
-      translations = [];
-      for t in results["translations"] {
-        if(t.1.exists()){
-          translations?.append(PersonTranslationMDB.init(results: t.1))
-        }
-      }
+      translations = PersonTranslationMDB.initialize(json: results["translations"]);
     }
     
     if(results["tv_credits"].exists()){

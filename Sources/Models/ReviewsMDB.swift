@@ -9,7 +9,7 @@
 import Foundation
 
 
-public struct ReviewsMDB{
+public struct ReviewsMDB: ArrayObject{
   public var id: String!
   public var author: String!
   public var content: String!

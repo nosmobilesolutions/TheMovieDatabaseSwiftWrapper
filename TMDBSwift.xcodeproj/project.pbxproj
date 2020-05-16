@@ -150,6 +150,7 @@
 		6FBFDD062273F37300B5A9B4 /* ResultsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E963016215F76B3006F7FA5 /* ResultsWrapper.swift */; };
 		6FBFDD072273F37300B5A9B4 /* ResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E96305421698762006F7FA5 /* ResponseWrapper.swift */; };
 		B39DA6252461924200752886 /* TranslationsMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1B33A1CB732C900B49F4E /* TranslationsMDB.swift */; };
+		B3E4E468246F8EF1007DAEB8 /* PaginationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E4E467246F8EF1007DAEB8 /* PaginationResult.swift */; };
 		CE0A99AF21FF769700ADADE7 /* Client_Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A99AE21FF769700ADADE7 /* Client_Authentication.swift */; };
 		CE0A99B021FF769700ADADE7 /* Client_Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A99AE21FF769700ADADE7 /* Client_Authentication.swift */; };
 		CE0A99B121FF769700ADADE7 /* Client_Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A99AE21FF769700ADADE7 /* Client_Authentication.swift */; };
@@ -336,6 +337,7 @@
 		6F62A0B620CB935F000744A9 /* TMDBSwift-macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMDBSwift-macOS.h"; sourceTree = "<group>"; };
 		6F62A0B720CB935F000744A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F62A0BC20CB935F000744A9 /* TMDBSwift-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TMDBSwift-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E4E467246F8EF1007DAEB8 /* PaginationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationResult.swift; sourceTree = "<group>"; };
 		CE0A99AE21FF769700ADADE7 /* Client_Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client_Authentication.swift; sourceTree = "<group>"; };
 		CE0A99B421FF81BA00ADADE7 /* AuthenticationMDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMDB.swift; sourceTree = "<group>"; };
 		CE0A99B821FF86C800ADADE7 /* AuthenticationMDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMDBModel.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				5E92596A1CB774B5003082AB /* Movie */,
 				5EF1B3351CB732C900B49F4E /* NetworksMDB.swift */,
 				5EF1B3361CB732C900B49F4E /* PageResultsMDB.swift */,
+				B3E4E467246F8EF1007DAEB8 /* PaginationResult.swift */,
 				5EF1B3371CB732C900B49F4E /* PersonMDB.swift */,
 				5EF1B3391CB732C900B49F4E /* ReviewsMDB.swift */,
 				5EF1B33A1CB732C900B49F4E /* TranslationsMDB.swift */,
@@ -915,6 +918,7 @@
 				5EF1B3461CB732C900B49F4E /* Client_Collections.swift in Sources */,
 				5E56F3251D0781A500CAED06 /* CertificationMDB.swift in Sources */,
 				5EF1B35F1CB732C900B49F4E /* FindMDB.swift in Sources */,
+				B3E4E468246F8EF1007DAEB8 /* PaginationResult.swift in Sources */,
 				CE0A99B921FF86C800ADADE7 /* AuthenticationMDBModel.swift in Sources */,
 				5EF1B36B1CB732C900B49F4E /* NetworksMDB.swift in Sources */,
 				5EF1B3681CB732C900B49F4E /* MovieMDBModel.swift in Sources */,

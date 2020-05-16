@@ -9,13 +9,17 @@
 import Foundation
 
 
-public struct NetworksMDB{
+public struct NetworksMDB: ArrayObject{
   
   public var id: Double!
   public var name: String!
+  public var logo: String?
+  public var homepage: String?
   public init(results: JSON){
     id = results["id"].double
     name = results["name"].string
+    logo = results["logo_path"].string
+    homepage = results["homepage"].string
   }
   
   ///This method is used to retrieve the basic information about a TV network. You can use this ID to search for TV shows with the discover.
