@@ -27,6 +27,12 @@ open class TVMDB: DiscoverTVMDB {
     results["genres"].forEach{
       genres.append(($0.1["id"].int, $0.1["name"].string))
     }
+    genreIds?.forEach({ gId in
+      let gName = TVGenres.init(rawValue: String(gId));
+      if(!genres.contains(where: { (t) -> Bool in t.id == gId}) && gName != nil){
+        genres.append(TVMDB.genresType(id: gId, name: "\(gName!)"))
+      }
+    })
   }
   
 }

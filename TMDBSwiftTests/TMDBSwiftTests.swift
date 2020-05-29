@@ -118,4 +118,22 @@ class TMDBSwiftTests: XCTestCase {
 //    XCTAssertEqual(data?.parent_company?.id, 5752)
 //    XCTAssertNotNil(data?.parent_company)
   }
+  
+    func testPopular() {
+      var data: [TVMDB]?
+      let expectation = self.expectation(description: "Wait for data to load.")
+      
+      TVMDB.popular(page: 1, language: "en"){
+        _, series in
+        data = series
+        expectation.fulfill()
+      }
+      
+      waitForExpectations(timeout: 5, handler: nil)
+      XCTAssertNotNil(data)
+      
+  //    XCTAssertEqual(data?.parent_company?.name, "Sony Pictures Entertainment")
+  //    XCTAssertEqual(data?.parent_company?.id, 5752)
+  //    XCTAssertNotNil(data?.parent_company)
+    }
 }
