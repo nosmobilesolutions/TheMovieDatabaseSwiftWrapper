@@ -13,6 +13,7 @@ public struct tv_created_By{
   public var id: Int!
   public var name: String!
   public var profile_path: String!
+  public var credit_id: String?
 }
 
 public struct tv_seasons{
@@ -72,7 +73,7 @@ open class TVDetailedMDB: TVMDB{
   required public init(results: JSON) {
     super.init(results: results)
     if(results["created_by"].count > 0 && results["created_by"][0].exists()){
-      createdBy = tv_created_By.init(id: results["created_by"][0]["id"].int, name: results["created_by"][0]["name"].string, profile_path: results["created_by"][0]["profile_path"].string)
+      createdBy = tv_created_By.init(id: results["created_by"][0]["id"].int, name: results["created_by"][0]["name"].string, profile_path: results["created_by"][0]["profile_path"].string, credit_id: results["created_by"][0]["credit_id"].string)
     }
     
     episode_run_time = results["episode_run_time"].arrayObject as? [Int]
