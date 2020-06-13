@@ -20,7 +20,7 @@ public struct TVEpisodesMDB: ArrayObject {
   public var production_code: Int!
   public var season_number: Int!
   public var still_path: String!
-  public var vote_average: Int!
+  public var vote_average: Double!
   public var vote_count: Int!
   public var credits: TVCreditsMDB?
   public var externalIds: ExternalIdsMDB?;
@@ -74,7 +74,7 @@ public struct TVEpisodesMDB: ArrayObject {
     production_code = results["production_code"].int
     season_number = results["season_number"].int
     still_path = results["still_path"].string
-    vote_average = results["vote_average"].int
+    vote_average = results["vote_average"].double
     vote_count  = results[" vote_count"].int
   }
   
