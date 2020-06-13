@@ -25,7 +25,7 @@ public struct TVEpisodesMDB: ArrayObject {
   public var credits: TVCreditsMDB?
   public var externalIds: ExternalIdsMDB?;
   public var images: ImagesMDB?;
-  public var translations = [TranslationsMDB]();
+  public var translations = [TvTranslationMDB]();
   public var videos = [VideosMDB]();
   
   public init(results: JSON){
@@ -51,7 +51,7 @@ public struct TVEpisodesMDB: ArrayObject {
     
     if(results["translations"].exists() && results["translations"]["translations"].exists()){
       for i in 0...results["translations"]["translations"].count{
-        translations.append(TranslationsMDB.init(results: results["translations"]["translations"][i]))
+        translations.append(TvTranslationMDB.init(results: results["translations"]["translations"][i]))
       }
     }
     
