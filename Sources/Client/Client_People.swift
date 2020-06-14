@@ -17,8 +17,8 @@ extension Client{
     if(page != nil){parameters["page"] = page as AnyObject?}
    
     if (append_to != nil && append_to!.count > 0) {
-      let appendTos = append_to?.joined(separator: ",")
-      parameters["append_to_response"] =  String(appendTos!) as AnyObject?
+      let appendTos = (append_to?.joined(separator: ","))!
+      parameters["append_to_response"] =  String(appendTos) as AnyObject?
     }
     
     networkRequest(url: url, parameters: parameters, completion: {
