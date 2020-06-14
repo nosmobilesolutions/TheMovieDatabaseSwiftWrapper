@@ -16,7 +16,7 @@ extension Client{
     
     if (append_to != nil && append_to!.count > 0) {
       let appendTos = append_to?.joined(separator: ",")
-      parameters["append_to_response"] =  appendTos! as AnyObject?
+      parameters["append_to_response"] =  String(appendTos!) as AnyObject?
     }
     
     let url = TMDBConfig.apiUrl + "/tv/" + urlType
