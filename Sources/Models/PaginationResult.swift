@@ -9,10 +9,10 @@
 import Foundation
 
 public class PaginationResult<T:ArrayObject>{
-  var page: Int?;
-  var results: [T]?;
-  var totalPages: Int?;
-  var totalResults: Int?;
+  public internal(set) var page: Int?;
+  public internal(set) var results: [T]?;
+  public internal(set) var totalPages: Int?;
+  public internal(set) var totalResults: Int?;
   
   init(results: JSON) {
     self.page = results["page"].int
