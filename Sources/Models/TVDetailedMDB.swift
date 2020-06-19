@@ -12,7 +12,7 @@ import Foundation
 public struct tv_created_By{
   public var id: Int!
   public var name: String!
-  public var profile_path: String!
+  public var profile_path: String?
   public var credit_id: String?
 }
 
