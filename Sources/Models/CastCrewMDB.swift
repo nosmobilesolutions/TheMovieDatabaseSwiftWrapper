@@ -9,7 +9,7 @@
 import Foundation
 
 open class CastCrewCommonMDB{
-  open var credit_id: String!
+  open var credit_id: String?
   open var id: Int!
   open var name: String!
   open var profile_path: String?
@@ -25,8 +25,8 @@ open class CastCrewCommonMDB{
 
 //Common obj between both TVCredits & MovieCredits
 open class CrewMDB: CastCrewCommonMDB{
-  open var department: String!
-  open var job: String!
+  open var department: String?
+  open var job: String?
   public init(crew: JSON){
     super.init(results: crew)
     department = crew["department"].string
@@ -36,7 +36,7 @@ open class CrewMDB: CastCrewCommonMDB{
 
 open class TVCastMDB: CastCrewCommonMDB{
   open var character: String!
-  open var order: Int!
+  open var order: Int?
   public init(cast: JSON){
     super.init(results: cast)
     character = cast["character"].string
